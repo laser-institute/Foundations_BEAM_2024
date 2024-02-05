@@ -1,20 +1,34 @@
 ---
 title: "Narrated: Foundations Case Study" 
 subtitle: "Independent/Group work"
-author: "PUT YOUR NAME HERE"
-date: "`r format(Sys.Date(),'%B %e, %Y')`"
-output:
-  html_document:
-    toc: yes
-    toc_depth: '5'
-    toc_float: yes
-name: ''
-editor_options:
-  markdown:
+author: "The LASER Team"
+date: last-modified
+format:
+  html:
+    toc: true
+    toc-title: Contents
+    toc-location: left
+    theme: 
+      - united
+      - "css/quarto-laser-html.scss"
+resources:
+  - demo.pdf
+editor: 
+  markdown: 
     wrap: 72
 ---
 
-## 0. INTRODUCTION
+### **Before you start, please note that this case study is organized into sections corresponding to different Modules. As you work through the Modules, you'll complete specific sections of the case study in a sequential manner.**
+
+-   Module 1 - Introduction & Prepare
+
+-   Module 2 - Wrangle
+
+-   Module 3 - Explore
+
+-   Module 4 - Model & Communicate
+
+## 0. INTRODUCTION (Module 1)
 
 We will focus on online science classes provided through a state-wide
 online virtual school and conduct an analysis that help product
@@ -96,11 +110,12 @@ continuous dependent variable.
 
 ### 1a. Load Libraries
 
-Tidyverse: Tidyverse is a collection of R packages designed for data
-manipulation, visualization, and analysis.
+Remember libraries are also called packages. They are shareable
+collections of code that can contain functions, data, and/or
+documentation and extend the functionality of the coding language.
 
-Here: The `here package` provides a simple way to manage file paths in
-your R projects.
+`Tidyverse`: is a collection of R packages designed for data
+manipulation, visualization, and analysis.
 
 ```{r}
 #Load Libraries below needed for analysis
@@ -109,10 +124,9 @@ library(tidyverse)
 
 ### 1b. Load in Data
 
-Load the file from data folder.
-
--   `log-data.csv` save object as `time-spent`
--   inspect the file
+We will need to load in and inspect each of the dataframes that we will
+use for this lab. You will first read about the dataframe and then learn
+how to load (or read in) the dataframe into the quarto document.
 
 #### Data Source #1: Log Data
 
@@ -127,51 +141,94 @@ the course. While this data type is fairly straightforward, there are
 even more complex sources of log-trace data out there (e.g., time stamps
 associated with when students started and stopped accessing the course).
 
+**Variables:** - `student_id` = students id at institution course_id =
+abbreviation for \`course, course number, semester
+
+-   "AnPhA" = "Anatomy",
+-   "BioA" = "Biology",
+-   "FrScA" = "Forensics",
+-   "OcnA" = "Oceanography",
+-   "PhysA" = "Physics"
+
+gender = male/female/NA enrollment_reason = why student took course
+enrollment_status = approve/enrolled, dropped, withdrawn time_spent =
+Time spent in hours for entire course
+
 Let's use the `read_csv()` function from {readr} to import our
 `log-data.csv` file directly from our data folder and name this data set
 `time_spent`, to help us to quickly recollect what function it serves in
 this analysis:
 
+Load the file from data folder.
+
+-   `log-data.csv` save object as `time-spent`
+-   inspect the file
+
 #### **👉 Your Turn** **⤵**
+
+You need to:
+
+1.  First, add a function to the code (to inspect the data (your
+    choice).
+2.  Second, press the green arrow head to run the code.
 
 ```{r}
 # load log file from data folder
 time_spent <- read_csv("data/log-data.csv")
 
 #inspect data
-
+#(add code below)
+time_spent
 
 ```
 
+❓ What do you notice? What do you wonder about? Did you note the number
+of observations, the different variables names? Finally what about the
+classes the variables are such as numeric, integer, character, or
+logical.
+
+💡 Look in the `Global Environment` if you get stuck.
+
 #### Data Source #2: Academic Achievement Data
 
-Load the file from data folder.
-
--   `gradebook-summary.csv` save object as `gradebook`
--   inspect the file
-
 We'll load the data in the same way as earlier.
+
+**Variables:** - `total_points_possible` = available points for the
+course - `total_points_earned` = total points student earned for the
+entire course
 
 Let's use the `read_csv()` function from {readr} to import our
 `gradebook-summary.csv` file directly from our data folder and name this
 data set `time_spent`, to help us to quickly recollect what function it
 serves in this analysis:
 
+Load the file from data folder.
+
+-   `gradebook-summary.csv` save object as `gradebook`
+-   inspect the file
+
 #### **👉 Your Turn** **⤵**
+
+You need to:
+
+1.  First, use the correct function to read in the .csv file and load
+    the `gradebook-summary.csv` file.
+2.  Second, add a function to the code (to inspect the data (your
+    choice).
+3.  Third, press the green arrow head to run the code.
 
 ```{r}
 # load grade book data from data folder
+#(add code below)
+gradebook <- read_csv("data/gradebook-summary.csv")
 
 #inspect data
+#(add code below)
+gradebook
 
 ```
 
 #### Data Source #3: Self-Report Survey
-
-Load the file from data folder.
-
--   `survey.csv`
--   inspect the file
 
 The third data source is a self-report survey. This was data collected
 before the start of the course. The survey included ten items, each
@@ -181,6 +238,9 @@ with one way to think about students' motivation, to what extent they
 expect to do well (corresponding to their perceived competence) and
 their value for what they are learning (corresponding to their interest
 and utility value).
+
+Variables: - `int` = student science interest - `tv` = how many hours a
+day student watches tv - `Q1-Q10` = survey questions
 
 1.  I think this course is an interesting subject. (Interest)
 2.  What I am learning in this class is relevant to my life. (Utility
@@ -203,108 +263,171 @@ Let's use the `read_csv()` function from {readr} to import our
 `time_spent`, to help us to quickly recollect what function it serves in
 this analysis:
 
+Load the file from data folder.
+
+-   `survey.csv`
+-   inspect the file
+
 #### **👉 Your Turn** **⤵**
+
+You need to:
+
+1.  First, use the correct function to read in the .csv file and load
+    the `survey.csv` file.
+2.  Second, add a function to the code (to inspect the data (your
+    choice).
+3.  Third, press the green arrow head to run the code.
 
 ```{r}
 # load survey data from data folder
+#(add code below)
+survey <- read_csv("data/survey.csv")
 
 #inspect data
+#(add code below)
+head(survey)
 
 ```
 
-## 2. WRANGLE
+### 🛑 Stop here. Congratulations you finished the first part of the case study.
+
+------------------------------------------------------------------------
+
+## 2. WRANGLE (Module 2)
 
 ### 2a. Tidy data
 
-##### Data 1: TIME SPENT
+#### A. Data 1: TIME SPENT
+
+#### A-1. Using `separate()` function
 
 We will separate course_id variable in the time-spent.
 
-The `c()` function in R is used to get the output by giving parameters
-inside the function.
+The `c()` function in R is used used to combine or concatenate its
+argument. You can use it to get the output by giving parameters inside
+the function.
+
+For example we want to separate `course_id` variables from
 
 ```{r}
+#separate variable to individual subject, semester and section
 time_spent %>%  
   separate(course_id,
            c("subject", "semester", "section"))
 
 
+#inspect
 time_spent
 
 ```
 
 Make sure to save it to the `time_spent` object.
 
+💡 Saving an object is accomplished by using an assignment operator,
+which looks kind of like an arrow (\<-).
+
 ```{r}
+
+#separate variable to individual subject, semester and section and save as same object name
 time_spent <- time_spent %>%  
   separate(course_id,
            c("subject", "semester", "section"))
 
-
+#inspect
 time_spent
 
 ```
 
-As you can see from the dataset, time_spent variable is not set as hour.
-Let's change that. For this, we will use "mutate()" function.
+#### A-2. Using `mutate()` function
+
+As you can see from the dataset, `time_spent` variable is *not* set as
+hour.
+
+Let's change that. For this, we will use `mutate()` function. The
+`mutate()` function in R programming is used to create new variables.
 
 ```{r}
 # mutate minutes to hours on time spent and save as new variable.
 time_spent <- time_spent %>% 
   mutate(time_spent_hours = time_spent / 60)
+
+#inspect
 time_spent
 ```
 
-##### Data 2: GRADEBOOK
+#### B. Data 2: GRADEBOOK
+
+#### B-1. Use `separate()` function
 
 Now, we will work on the `gradebook` dataset. Like the previous dataset,
 we will separate course_id variable again.
 
--   save as `gradebook1` object
-
--   inspect the data
-
 #### **👉 Your Turn** **⤵**
 
-```{r eval=FALSE, warning=FALSE, message=FALSE}
+You need to:
+
+1.  First, use the pipe operator to separate `course_id` variable (like
+    we jsut did in `time_spent`).
+2.  Second, press the green arrow head to run the code.
+
+```{r warning=FALSE, message=FALSE}
 # separate the course_id variable and save to 'gradebook' object
-gradebook1 <- gradebook %>% 
+gradebook1 <- gradebook %>%  
+  #(add code below)
+  separate(course_id,
+           c("subject", "semester", "section"))
 
-
+#inspect
 gradebook1
 ```
 
-As you can see in the gradebook our grade is in points. We want it in a
-proportion - Create a new variable call it: `proportion_earned`
+#### B-2. Use the `mutate()` function
 
--   take 'total points earned' divide by 'total points possible and
-    multiple by 100
-
--   save `gradebook1` object
+As you can see in the gradebook dataframe the `total points earned` is
+in points and it is hard to know the proportion. Therefore, we want it
+to mutate that to a proportion.
 
 #### **👉 Your Turn** **⤵**
 
-```{r eval=FALSE, warning=FALSE, message=FALSE}
-# Mutate to a proportion_earned, take 'total points earned' divide by 'total points possible.' Save as new variable proportion_earned.
-gradebook1 <- gradebook1 %>% 
-  mutate())
+You need to:
 
-#inspect data
+1.  First, take 'total points earned' divide by 'total points possible
+    and multiple by 100. Save this as `proportion_earned`.
+2.  Second, press the green arrow head to run the code.
+
+```{r warning=FALSE, message=FALSE}
+# Mutate to a proportion_earned, take 'total points earned' divide by 'total points possible.' Save as new variable proportion_earned.
+
+gradebook1 <- gradebook1 %>% 
+  #(addcode below)
+  mutate(proportion_earned = total_points_earned / total_points_possible * 100)
+
+#inspect
 gradebook1
 
 ```
 
-##### Data 3: SURVEY
+#### C. Data 3: SURVEY
 
 Let's process our data. First though, take a quick look again by typing
 `survey` into the console or using a preferred viewing method to take a
 look at the data.
 
-Does it appear to be the correct file? What do the variables seem to be
-about? What wrangling steps do we need to take? Taking a quick peak at
-the data helps us to begin to formulate answers to these and is an
+❓ Does it appear to be the correct file? What do the variables seem to
+be about? What wrangling steps do we need to take? Taking a quick peak
+at the data helps us to begin to formulate answers to these and is an
 important step in any data analysis, especially as we *prepare* for what
 we are going to do.
+
+```{r eval=FALSE, warning=FALSE, message=FALSE}
+#inspect data to view the column names
+survey
+
+```
+
+💡 Look at the variable names.
+
+#### **👉 Answer below** **⤵**
 
 Add one or more of the things you notice or wonder about the data here:
 
@@ -312,108 +435,150 @@ Add one or more of the things you notice or wonder about the data here:
 
 -   
 
+#### C-1. Use the `Janitor` package
+
 Now, we will work on third data source to clean out data using the
-[janitor](<https://garthtarr.github.io/meatR/janitor.html> package which
-has simple functions for examining and cleaning dirty data.
+\[janitor\](<https://garthtarr.github.io/meatR/janitor.html> package
+which has simple functions for examining and cleaning dirty data.
 
 #### **👉 Your Turn** **⤵**
 
-```{r eval=FALSE, warning=FALSE, message=FALSE}
-#inspect data to view the column names
-survey
+You need to:
 
+1.  First, add `janitor` package using the `library` function.
+2.  Second clean the columns by adding the `survey` object to the
+    `clean_names()` functon and saving it to the `survey`object.
+3.  Third, inspect the data using the
+4.  Fouth, press the green arrow head to run the code.
+
+```{r warning=FALSE, message=FALSE}
 # load janitor to clean variable names that do not match
+#(add code below)
+
 library(janitor)
 
 #clean columns of the survey data and save to survey object
- <- clean_names()
+#(add code below - some code is give to you)
+survey <- survey %>%
+  clean_names()
 
 #inspect data to check for consistency with other data
-
+#(add code below)
+survey
 
 ```
 
 ### 2b. Join Data
 
-We will use `join() function` to combine datasets. To combine the
-dataset, we are using full_join.
+Npw, we will use `join()` function to combine datasets. To combine the
+dataset, we are using `full_join`.
 
 The full join returns all of the records in a new table, whether it
 matches on either the left or right tables. If the table rows match,
 then a join will be executed, otherwise it will return NULL in places
 where a matching row does not exist.
 
-When we are combining `gradebook1` and `time_spent` datasets, we should
-identify column names. In this case, we will use `student_id,`
-`subject,` `semester,` and `section` for the match.
+#### 2b-1 Join gradebook data with time spent datasets
 
-```{r eval = FALSE}
+When we are combining `gradebook1` and `time_spent` datasets, we should
+identify column names.
+
+In this case, we will use the following variables for the match: -
+`student_id,` - `subject,` - `semester,` - `section`
+
+```{r message=FALSE, warning=FALSE}
 # use single join to join data sets by student_id, subject, semester and section.
 joined_data <- full_join(gradebook1, time_spent, 
                          by = c("student_id", "subject", "semester", "section"))
 
+#inspect
 joined_data
 ```
 
 As you can see, we have a new dataset, joined_data with 12
-variables.Those variables came from the gradebook and time_spent
+variables.Those variables came from the gradebook1 and time_spent
 datasets.
+
+#### 2b-2 Join survey dataset with joined dataset
 
 Similar to above but now - combine this new dataset `joined_data` with
 `survey` dataset
 
 #### **👉 Your Turn** **⤵**
 
-```{r eval = FALSE}
-data_to_explore  <- 
+You need to: 1. Use `full join` function to join `joined_data` with
+`survey` dataset with the following variables: - `student_id,` -
+`subject,` - `semester,` - `section` 2. Save to a new object called
+`data_to_explore`. 3. Inspect the data by clicking the green arrow head
+
+```{r eval=FALSE}
+# use single join to join data sets by student_id, subject, semester and section.
+#(add code below - some code has been added for you)
+data_to_explore  <- full_join(joined_data, survey, by = c("student_id",
+"subject", "section"))
+
+#inspect
 data_to_explore
 ```
 
 **DON"T PANIC if you are getting an error - read below!!**
 
-Datasets cannot be joined because the type of "student_id" is different.
-We need same types of variables to join the datasets. To turn a
-numerical variable into a character variable.
+Datasets cannot be joined because the class (type) of "student_id" is
+different.
 
-#### **👉 Your Turn** **⤵**
+To fix this we need the same types of variables to join the datasets -
+we will turn a numerical variable into a character variable.
 
-Check out what class student_id is in `joined_data` compared to `survey`
-data. What class are they?
+❓ Check out what class student_id is in `joined_data` compared to
+`survey` data. What class are they?
+
+#### **👉 Answer below** **⤵**
 
 -   
 
--   
-
--   Now change
-    `student_id in`joined_data`to a character class. Do this with the`as.character()\`
-    function.
-
--   save variable to `student_id` variable so you can join with the same
-    class.
+#### 2b-3 Use `as.character()` function
 
 #### **👉 Your Turn** **⤵**
 
-```{r eval= FALSE}
+In the `joined_data`
+
+You need to: 1. First, use the `mutate` function and `as.character()`
+function to change `student_id` variable from numeric to character
+class. Save as student_id. 2. Second, press the green arrow head to run
+the code.
+
+```{r message=FALSE, warning=FALSE}
 #mutate to change variable class from double or numeric to character
+#(add code below - some code has been already added)
 joined_data <- joined_data %>%
-  mutate()
+  mutate(student_id = as.character(student_id))
 
-#inspect data
+#inspect 
 joined_data
 ```
 
-NOW: - full join - joined_data - survey - save as a new object called
-`data_to_explore` - inspect the data object
+#### NOW: - full join
 
 #### **👉 Your Turn** **⤵**
 
-```{r eval = FALSE}
+Now, that the variables are the same class you need to: 1. Use
+`full join` function to join `joined_data` with `survey` dataset with
+the following variables: - `student_id,` - `subject,` - `semester,` -
+`section` 2. Save to a new object called `data_to_explore`. 3. Inspect
+the data by clicking the green arrow head
+
+```{r message=FALSE, warning=FALSE}
 #try again to together the grade_book and log_wrangled
-data_to_explore <- full_join(joined_data, survey, by = c())
+#(add code below - some code has been already added)
+data_to_explore <- full_join(joined_data, survey, 
+                             by = c("student_id", "subject", "semester", "section"))
 
 # inspect data
+data_to_explore
 
 ```
+
+#### 2b-4 Use `write_csv()` function
 
 Now let's write the file to our **data folder** using the `write_csv()`
 to save for later or download.
@@ -424,9 +589,13 @@ write_csv(data_to_explore, "data/data_to_explore.csv")
 
 ```
 
-Check to see if it is in there, the data folder.
+Check the data folder to confirm the location of your new file.
 
-## 3. EXPLORE
+### 🛑 Stop here. Congratulations you finished the second part of the case study.
+
+------------------------------------------------------------------------
+
+## 3. EXPLORE (Module 3)
 
 We've already wrangled out data - but let's look at the data frame to
 make sure it is still correct. A quick way to look at the data frame is
@@ -437,42 +606,52 @@ This output is best for internal use.
 
 This is because the output is rich, but not well-suited to exporting to
 a table that you add, for instance, to a Google Docs or Microsoft Word
-manuscript. Of course, these values can be entered manually into a
-table, but we'll also discuss ways later on to create tables that are
-ready, or nearly-ready-to be added directly to manuscripts.
+manuscript.
 
--   load `skimr` package
+Of course, these values can be entered manually into a table, but we'll
+also discuss ways later on to create tables that are ready, or
+nearly-ready-to be added directly to manuscripts.
+
+First, install and load the package. Normally you would do this above
+but we want to make sure you know which packages are used with the new
+functions.
+
+#### **👉 Your Turn** **⤵**
+
+You need to:
+
+1.  First, load `skimr` package with the correct function.
 
 Normally you would do this above but we want to make sure you know which
 packages are used with the new functions.
 
-#### **👉 Your Turn** **⤵**
-
-```{r messages=FALSE, warning=FALSE}
-
+```{r message=FALSE, warning=FALSE}
 #load library by adding skimr as the package name
-
+#(add code below)
+library(skimr)
 
 ```
 
-Second: - use the `skim()` function to view the `data_to explore`
-
 #### **👉 Your Turn** **⤵**
 
-```{r messages=FALSE, warning=FALSE}
-#skim the data by adding the skim function in front of the data
+2.  Second, use the `skim()` function to view the `data_to explore`
 
+```{r message=FALSE, warning=FALSE}
+#skim the data by adding the skim function in front of the data
+skim(data_to_explore)
 ```
 
 In the code chunk below: - `group_by` `subject` variable - then `skim()`
 
 #### **👉 Your Turn** **⤵**
 
-```{r eval=FALSE, messages=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 data_to_explore %>%
-  group_by()
-  skim()
+  group_by(subject) %>% 
+  skim() 
 ```
+
+### 3b. Use `ggplot2` package
 
 GGplot is designed to work iteratively. You start with a layer that
 shows the raw data. Then you add layers of annotations and statistical
@@ -497,55 +676,63 @@ has three key components:
 -   At least one layer which describes how to render each observation.
     Layers are usually created with a geom function."
 
-### One Continuous variable
+### 3b - 1 One Continuous variable
 
 Create a basic visualization that examines a continuous variable of
 interest.
 
-#### Barplot
+#### **Barplot**
 
-#### Which online course had the largest enrollment numbers?
+We will be guided by the following research question.
 
-Which variable should we be looking at?
+#### ❓ Which online course had the largest enrollment numbers?
+
+❓ Which variable should we be looking at?
 
 #### **👉 Your Turn** **⤵**
 
-```{r messages=FALSE, warning=FALSE}
-#inspect the data frame
+You need to: 1. First, inspect the `data_to_explore` to understand what
+variables we might need to explore the research question.
 
+```{r message=FALSE, warning=FALSE}
+#inspect at the data frame
+#(add code below)
+data_to_explore
 ```
 
 #### Level a. The most basic level for a plot
 
-Includes:
+As a reminder the most basic visualization that you can make with GGPLOT
+include three things:
 
 -   **data**: data_to_explore.csv
--   **`aes()` function** - one continuous variable:
+-   **`aes` function**: one continuous variable:
     -   subject mapped to x position
 -   **Geom**:`geom_bar()` function - bar graph
 
-```{r eval=FALSE, messages=FALSE, warning=FALSE}
+```{r warning=FALSE, message=FALSE}
+
 #layer 1: add data 
 # layer 2: add aesthetics mapping
 ggplot(data_to_explore, aes(x = subject)) +
 #layer 3: add geom 
-  geom_bar() +
+  geom_bar() 
 
 ```
 
 #### Level b. Add another layer with labels
 
--   **title**: "Number of Student Enrollments per Subject"
--   **caption**: "Which online courses have had the largest enrollment
-    numbers?"
+We can add the following to our ggplot visualization as layer 4 -
+**title**: "Number of Student Enrollments per Subject" - **caption**:
+"Which online courses have had the largest enrollment numbers?"
 
-```{r messages=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE}
+
 #layer 1: add data 
 # layer 2: add aesthetics mapping
 ggplot(data_to_explore, aes(x = subject)) +
 #layer 3: add geom 
   geom_bar() +
-
 #layer 4: add labels
     labs(title = "Number of Student Enrollments per Subject",
        caption = "Which online courses have had the largest enrollment numbers?")
@@ -553,11 +740,17 @@ ggplot(data_to_explore, aes(x = subject)) +
 
 #### Level c: Add **Scale** with a different color.
 
--   **scale**: fill = gender
+To answer the following research question we can add a scale layer:
 
-##### RESEARCH QUESTION: What can we notice about gender?
+#### ❓ What can we notice about gender?
 
-```{r messages=FALSE, warning=FALSE}
+-   
+
+    ```         
+    layer 5: **scale**: fill = gender
+    ```
+
+```{r message=FALSE, warning=FALSE}
 #layer 1: add data 
 # layer 2: add aesthetics mapping and #layer 5 scale
 ggplot(data_to_explore, aes(x = subject, fill = gender)) +
@@ -567,38 +760,47 @@ ggplot(data_to_explore, aes(x = subject, fill = gender)) +
 #layer 4: add labels
     labs(title = "Gender Distribution of Students Across Subjects",
        caption = "Which subjects enroll more female students?")
-
 ```
 
-#### Histogram - You try with the guiding research question: What number is the number of hours students watch TV?
+#### **Histogram**
+
+#### ❓ What number is the number of hours students watch TV?
 
 -   **data**: data_to_explore
 -   **`aes()` function** - one continuous variables:
     -   `tv` variable mapped to x position
 -   **Geom**: geom_histogram() *this code is already there you just need
     to un-comment it.*
--   Add a **title** "Number of Hours Students Watch TV per Day"
+-   Add a **title** ""Number of Hours Students Watch TV per Day"
 -   Add a **caption** that poses the question "Approximately how many
     students watch 4+ hours of TV per day?"
 
 **NEED HELP? [TRY
 STHDA](http://www.sthda.com/english/wiki/ggplot2-histogram-plot-quick-start-guide-r-software-and-data-visualization)**
 
+Yours could look like something below...
+
 #### **👉 Your Turn** **⤵**
 
-```{r messages=FALSE, warning=FALSE}
-#add data
+```{r message=FALSE, warning=FALSE}
+#(add code below)
+ggplot(data_to_explore, aes(x = tv)) + 
+  #(add code below)
+  geom_histogram(bins = 5) +
+  #(add code below)
+  labs(title = "Number of Hours Students Watch TV per Day", 
+       caption = "Approximately how many students watch 4+ hours of TV per day?")
+```
 
-# add the geom
+or maybe you added a `theme()`
 
-#add geom
-#geom_histogram(bins = 5) +
-
-#add the labs
-
-
-
-
+```{r}
+data_to_explore%>%
+  ggplot(aes(x= tv))+
+  geom_histogram(bins = 5, fill = "red", colour = "black")+
+  labs(title = "Number of Hours Students Watch TV per Day", 
+       caption = "Approximately how many students watch 4+ hours of TV per day?") +
+  theme_classic()
 ```
 
 ### Two categorical Variables
@@ -606,9 +808,9 @@ STHDA](http://www.sthda.com/english/wiki/ggplot2-histogram-plot-quick-start-guid
 Create a basic visualization that examines the relationship between two
 categorical variables.
 
-##### RESEARCH QUESTION: What do you wonder about the reasons for enrollment in various courses?
+#### ❓ What do you wonder about the reasons for enrollment in various courses?
 
-#### Heatmap
+#### **Heatmap**
 
 -   **data**: data_to_explore
 -   use `count()` function for `subject`, `enrollment` then,
@@ -623,14 +825,15 @@ categorical variables.
 
 #### **👉 Your Turn** **⤵**
 
-```{r messages=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 data_to_explore %>% 
-  count() %>% 
+  count(subject, enrollment_reason) %>% 
   ggplot() + 
   geom_tile(mapping = aes(x = subject, 
                           y = enrollment_reason, 
                           fill = n)) + 
-  labs()
+  labs(title = "Reasons for Enrollment by Subject", 
+       caption = "Which subjects were the least available at local schools?")
 ```
 
 ### Two continuous variables
@@ -638,18 +841,23 @@ data_to_explore %>%
 Create a basic visualization that examines the relationship between two
 continuous variables.
 
-#### Scatter plot
+#### **Scatter plot**
 
-##### Can we predict the grade on a course from the time spent in the course LMS?
+#### ❓ Can we predict the grade on a course from the time spent in the course LMS?
 
-Which variables should we be looking at? \#### **👉 Your Turn** **⤵**
+Which variables should we be looking at?
 
-```{r messages=FALSE, warning=FALSE}
-#Inspect the data frame
-
+```{r message=FALSE, warning=FALSE}
+#look at the data frame
+ #(add code below)
+data_to_explore
 ```
 
-#### Level a. The most basic level for a plot
+#### **👉 Your answer here** **⤵**
+
+-   
+
+#### Level a. The most basic level for a **scatter** plot
 
 Includes:
 
@@ -661,9 +869,13 @@ Includes:
 
 #### **👉 Your Turn** **⤵**
 
-```{r messages=FALSE, warning=FALSE}
-
-
+```{r message=FALSE, warning=FALSE}
+#layer 1: add data and aesthetics mapping 
+ggplot(data_to_explore,
+       aes(x = time_spent_hours, 
+           y = proportion_earned)) +
+#layer 2: +  geom function type
+  geom_point() 
 ```
 
 #### Level b. Add another layer with labels
@@ -675,20 +887,42 @@ Includes:
 
 #### **👉 Your Turn** **⤵**
 
-```{r messages=FALSE, warning=FALSE}
-
+```{r message=FALSE, warning=FALSE}
+#layer 1: add data and aesthetics mapping 
+#layer 3: add color scale by type
+ggplot(data_to_explore, 
+       aes(x = time_spent_hours, 
+           y = proportion_earned,
+           color = enrollment_status)) +
+#layer 2: +  geom function type
+  geom_point() +
+#layer 4: add labels
+  labs(title="How Time Spent on Course LMS is Related to Points Earned in the course", 
+       x="Time Spent (Hours)", 
+       y = "Proportion of Points Earned")
 ```
 
 #### Level c. Add **Scale** with a different color.
 
-##### Can we notice anything about enrollment status?
+#### ❓ Can we notice anything about enrollment status?
 
--   Add **scale** in aes: color = enrollment_status
+-   Add **scale**: color = enrollment_status
 
 #### **👉 Your Turn** **⤵**
 
-```{r messages=FALSE, warning=FALSE}
-
+```{r message=FALSE, warning=FALSE}
+#layer 1: add data and aesthetics mapping 
+#layer 4: add color scale by type
+ggplot(data_to_explore, 
+       aes(x = time_spent_hours, 
+           y = proportion_earned,
+           color = enrollment_status)) +
+#layer 2: +  geom function type
+  geom_point() +
+#layer 3: add labels
+  labs(title="How Time Spent on Course LMS is Related to Points Earned in the course", 
+       x="Time Spent (Hours)", 
+       y = "Proportion of Points Earned")
 ```
 
 #### Level d. Divide up graphs using facet to visualize by subject.
@@ -697,42 +931,59 @@ Includes:
 
 #### **👉 Your Turn** **⤵**
 
-```{r}
- 
+```{r message=FALSE, warning=FALSE}
+#layer 1: add data and aesthetics mapping 
+#layer 3: add color scale by type
+ggplot(data_to_explore, aes(x = time_spent_hours, y = proportion_earned, color = enrollment_status)) +
+#layer 2: +  geom function type
+  geom_point() +
+#layer 4: add labels
+  labs(title="How Time Spent on Course LMS is Related to Points Earned in the Course", 
+       x="Time Spent (Hours)",
+       y = "Proportion of Points Earned")+
+#layer 5: add facet wrap
+  facet_wrap(~ subject) 
 ```
 
 #### Level e. How can we remove NA's from plot? and What will the code look like without the comments?
 
--   use **data** then,
--   use `drop_na` function to remove na's from `enrollment_status` then,
--   add labs
+You can pipe the data with the dataframe and use `drop_na()` function.
 
-#### **👉 Your Turn** **⤵**
+-   use **data** then
+-   add `enrollment status` to the `drop_na` function to remove na's
+-   add labels to the `labs()` function like above.
+-   Facet wrap by subject
 
-```{r messages=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE}
+#(add code below where needed - some has been added already)
 data_to_explore %>%
-  drop_na() %>%
+  drop_na(enrollment_status) %>%
   ggplot(aes(x = time_spent_hours, 
              y = proportion_earned, 
              color = enrollment_status)) +
   geom_point() +
-  labs()+
-  facet_wrap() 
+  labs(title="How Time Spent on Course LMS is Related to Points Earned in the Course", 
+       x="Time Spent (Hours)",
+       y = "Proportion of Points Earned")+
+  facet_wrap(~ subject) 
 ```
 
-## 4. Model
+### 🛑 Stop here. Congratulations you finished the third part of the case study.
+
+## Model (Module 4)
 
 Quantify the insights using mathematical models. As highlighted
 in.[Chapter 3 of Data Science in Education Using
-R](https://datascienceineducation.com/c03.html), the.**Model**.step of
+R](https://datascienceineducation.com/c03.html), the.**Model**step of
 the data science process entails "using statistical models, from simple
-to complex, to understand trends and patterns in the data." The authors
-note that while descriptive statistics and data visualization during
-the**Explore**step can help us to identify patterns and relationships in
-our data, statistical models can be used to help us determine if
-relationships, patterns and trends are actually meaningful.
+to complex, to understand trends and patterns in the data."
 
-##### A. Correlation Matrix
+The authors note that while descriptive statistics and data
+visualization during the**Explore**step can help us to identify patterns
+and relationships in our data, statistical models can be used to help us
+determine if relationships, patterns and trends are actually meaningful.
+
+### A. Correlation Matrix
 
 As highlighted in @macfadyen2010, scatter plots are a useful initial
 approach for identifying potential correlational trends between
@@ -751,11 +1002,21 @@ the variables* are related to *all of the other variables*.
 
 #### **👉 Your Turn** **⤵**
 
+You need to: 1. Load the `corrr` package using the correct function 💡
+(you may need to install.packages() in th econsole if this is your first
+time using loading the package.)
+
 ```{r messages=FALSE, warning=FALSE}
-# load in corrr library
+#install corrr package if this is your first time
 
-
+# read in library
+#(add code below)
+library(corrr)
 ```
+
+### A-1 Simple Correlation
+
+#### **👉 Your Turn** **⤵**
 
 Look and see if there is a simple correlation between by:
 
@@ -765,10 +1026,11 @@ Look and see if there is a simple correlation between by:
     -   `proportion_earned`
 -   use `correlate()` function
 
-#### **👉 Your Turn** **⤵**
-
 ```{r messages = FALSE, warning=FALSE}
-
+#(add code below)
+data_to_explore %>% 
+  select(proportion_earned, time_spent_hours) %>%
+  correlate()
 ```
 
 **For printing** purposes,the `fashion()` function can be added for
@@ -786,14 +1048,16 @@ data_to_explore %>%
   fashion()
 ```
 
-What other variables would you like to check out? \#### **👉 Your Turn**
-**⤵**
+❓ What other variables would you like to check out?
+
+#### **👉 Your Turn⤵**
 
 ```{r messages=FALSE, warning=FALSE}
+#(add code below)
 
 ```
 
-##### B. APA Formatted Table
+### B. APA Formatted Table
 
 While {corrr} is a nice package to quickly create a correlation matrix,
 you may wish to create one that is ready to be added directly to a
@@ -810,14 +1074,11 @@ Run the following code to create a subset of the larger
 `data_to_explore` data frame with the variables you wish to correlate,
 then create a correlation table using `apa.cor.table()`.
 
--   load `apaTables` library
-
 #### **👉 Your Turn** **⤵**
 
 ```{r messages=FALSE, warning=FALSE}
-
 # read in apatables library
-library()
+library(apaTables)
 
 data_to_explore_subset <- data_to_explore %>% 
   select(time_spent_hours, proportion_earned, int)
@@ -842,9 +1103,9 @@ You should now see a new Word document in your project folder called
 `survey-cor-table.doc`. Click on that and you'll be prompted to download
 from your browser.
 
-##### C. Predict Academic Achievement
+### C. Predict Academic Achievement
 
-##### Linear Regression
+#### Linear Regression
 
 In brief, a linear regression model involves estimating the
 relationships between one or more *independent variables* with one
@@ -859,7 +1120,17 @@ Does time spent predict grade earned?
 
 The following code estimates a model in which `proportion_earned`, the
 proportion of points students earned, is the dependent variable. It is
-predicted by one independent variable
+predicted by one independent variable, `int`, students' self-reported
+interest in science.
+
+```{r messages=FALSE, warning=FALSE}
+lm(proportion_earned ~ time_spent_hours, 
+   data = data_to_explore)
+```
+
+The following code estimates a model in which `proportion_earned`, the
+proportion of points students earned, is the dependent variable. It is
+predicted by one independent variable.
 
 -   Add + `int`, after `time_spent_hours` for students' self-reported
     interest in science.
@@ -867,9 +1138,9 @@ predicted by one independent variable
 #### **👉 Your Turn** **⤵**
 
 ```{r messages=FALSE, warning=FALSE}
-
-# add predictor variable for `science interest `int`
-lm(proportion_earned ~ time_spent_hours , 
+# Add predictor variable for science
+#(add code below)
+lm(proportion_earned ~ time_spent_hours + int, 
    data = data_to_explore)
 ```
 
@@ -884,30 +1155,21 @@ standing for model 1. We can then use the `summary()` function built
 into R to view a much more feature-rich summary of the estimated model.
 
 ```{r messages=FALSE, warning=FALSE}
-# save the model
+# save the model 1
 m1 <- lm(proportion_earned ~ time_spent_hours + int, data = data_to_explore)
 
 ```
 
-Run a summary model for the model you just created called, `m1.`
-
-#### **👉 Your Turn** **⤵**
+Run a summary model for the model you just created called, `m1.` \####
+**👉 Your Turn** **⤵**
 
 ```{r messages=FALSE, warning=FALSE}
 #run the summary
-summary()
+summary(m1)
 
 ```
 
-Let's save this as a nice APA table for possible publication
-
-```{r messages=FALSE, warning=FALSE}
-# use the {apaTables} package to create a nice regression table that could be used for later publication.
-apa.reg.table(m1, filename = "lm-table.doc")
-
-```
-
-##### Summarize predictors
+### Summarize predictors
 
 The `summarize()` function from the {dplyr} package used to create
 summary statistics such as the mean, standard deviation, or the minimum
@@ -929,9 +1191,9 @@ save it to a new variable called `mean_time`
 
 #### **👉 Your Turn** **⤵**
 
-```{r message=FALSE, warning=FALSE}
-
-
+```{r messages=FALSE, warning=FALSE}
+data_to_explore %>% 
+  summarize(mean_time = mean(time_spent_hours, na.rm = TRUE))
 ```
 
 The mean value for interest is quite high. If we multiply the estimate
@@ -945,6 +1207,23 @@ If we add both 0.197 and 0.128 to the intercept, 0.449, that equals
 0.774, or about 77%. In other words, a student with average interest in
 science who spent an average amount of time in the course earned a
 pretty average grade.
+
+Let's save this as a nice APA table for possible publication
+
+```{r messages=FALSE, warning=FALSE}
+apa.reg.table(m1, filename = "lm-table.doc")
+```
+
+-   load `apaTables` library
+
+```{r messages=FALSE, warning=FALSE}
+
+#load packages
+
+# use the {apaTables} package to create a nice regression table that could be used for later publication.
+apa.reg.table(m1, filename = "lm-table.doc")
+
+```
 
 ## Communicate
 
