@@ -114,6 +114,8 @@ course site predict student achievement in the course under study?
 kn'obh'o
 :::
 
+# Loading and Installing packages {background="#143156"}
+
 ## Load Pacakges
 :::: {.columns}
 
@@ -192,10 +194,124 @@ library(tidyverse)
 ```
 :::
 
-If you see `red` it does not always mean error. 
+If you see <span style="color:red;">red</span> it does not always mean error. 
 
 
-# Learning Analytics Workflow {background="#143156"}
+# Reading in data {background="#143156"}
+
+
+## Function to read in data
+
+::: panel-tabset
+Common {[readr](https://readr.tidyverse.org)} functions to read in different types of data
+
+<img src = "img/readr_function.png" height= "750px"/>
+
+## delimeter
+
+<img src = "img/img/delimiter.png" height= "750px"/>
+
+:::
+
+
+## Using the readr function
+:::: {.columns}
+
+::: {.column width="45%"}
+
+- Use `read_csv()` function to read in CSV.
+
+:::{style="font-size: 50px"}
+```{r eval = FALSE, echo=TRUE, message = FALSE, warning=FALSE}
+#| code-line-numbers: "|2|5"
+#use read_csv function to read in sci-online-classes.csv rename object to online_classes
+online_classes <- read_csv("data/sci-online-classes.csv") #<<
+
+#use head() function
+knitr::kable(head(online_classes, n=5), format = 'html')
+
+```
+:::
+:::
+
+
+::: {.column width="45%"}
+
+:::
+
+::::
+
+
+## Using the readr function
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+- Use `read_csv()` function to read in CSV.
+
+:::{style="font-size: 50px"}
+```{r eval = FALSE, echo=TRUE, message = FALSE, warning=FALSE}
+#| code-line-numbers: "|2|5"
+#use read_csv function to read in sci-online-classes.csv rename object to online_classes
+online_classes <- read_csv("data/sci-online-classes.csv") #<<
+
+#use head() function
+knitr::kable(head(online_classes, n=5), format = 'html')
+
+
+```
+:::
+:::
+
+
+::: {.column width="45%"}
+Your turn **👉 Your Turn** **⤵** 
+
+In the corresponding script do the following:
+
+- load in the `readxl` package, 
+- load in `"data/csss_tweets.xlsx"` file save to a new object csss_tweets
+- inspect the data by `head()` function
+
+::: {style="font-size: 50px"}
+```{r echo=TRUE, eval=FALSE}
+
+# 1. Install and read in the readxl Package 
+
+# 2. use read_excel() function to read in data/csss_tweets.xlsx
+csss_tweets <- 
+  
+# 3. use head() function to read 
+head()
+```
+:::
+:::
+
+::::
+
+
+## **👉 Your Turn** **⤵** -> Answer
+
+. . .
+
+::: {style="font-size: 50px"}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+#| code-line-numbers: "|3|6|9"
+
+#Install and read in the readxl Package 
+library(readxl)
+
+#use read_excel() function to read in data/csss_tweets.xlsx
+csss_tweets <- read_excel("data/csss_tweets.xlsx")#<<
+
+#use head() function to read 
+head(csss_tweets, n = 5)
+
+```
+:::
+
+What did you notice about what is printed?
 
 
 

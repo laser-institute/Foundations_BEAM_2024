@@ -508,6 +508,11 @@ Jeanne McClure
           display:block!important;
       }</style></aside>
 </section>
+<section>
+<section id="loading-and-installing-packages" class="title-slide slide level1 center" data-background="#143156">
+<h1>Loading and Installing packages</h1>
+
+</section>
 <section id="load-pacakges" class="slide level2">
 <h2>Load Pacakges</h2>
 <div class="columns">
@@ -563,13 +568,118 @@ Jeanne McClure
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>If you see <code>red</code> it does not always mean error.</p>
+<p>If you see <span style="color:red;">red</span> it does not always mean error.</p>
+</div>
+</section></section>
+<section>
+<section id="reading-in-data" class="title-slide slide level1 center" data-background="#143156">
+<h1>Reading in data</h1>
+
+</section>
+<section id="function-to-read-in-data" class="slide level2">
+<h2>Function to read in data</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">delimeter</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p><img src="img/img/delimiter.png" height="750px"></p>
+</div>
+</div>
 </div>
 </section>
-<section>
-<section id="learning-analytics-workflow" class="title-slide slide level1 center" data-background="#143156">
-<h1>Learning Analytics Workflow</h1>
+<section id="using-the-readr-function" class="slide level2">
+<h2>Using the readr function</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>Use <code>read_csv()</code> function to read in CSV.</li>
+</ul>
+<div style="font-size: 50px">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="|2|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#use read_csv function to read in sci-online-classes.csv rename object to online_classes</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>online_classes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/sci-online-classes.csv"</span>) <span class="co">#&lt;&lt;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#use head() function</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(online_classes, <span class="at">n=</span><span class="dv">5</span>), <span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
 
+</div>
+</div>
+</section>
+<section id="using-the-readr-function-1" class="slide level2">
+<h2>Using the readr function</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>Use <code>read_csv()</code> function to read in CSV.</li>
+</ul>
+<div style="font-size: 50px">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="|2|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#use read_csv function to read in sci-online-classes.csv rename object to online_classes</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>online_classes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/sci-online-classes.csv"</span>) <span class="co">#&lt;&lt;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#use head() function</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(online_classes, <span class="at">n=</span><span class="dv">5</span>), <span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<p>Your turn <strong>👉 Your Turn</strong> <strong>⤵</strong></p>
+<p>In the corresponding script do the following:</p>
+<ul>
+<li>load in the <code>readxl</code> package,</li>
+<li>load in <code>"data/csss_tweets.xlsx"</code> file save to a new object csss_tweets</li>
+<li>inspect the data by <code>head()</code> function</li>
+</ul>
+<div style="font-size: 50px">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># 1. Install and read in the readxl Package </span></span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co"># 2. use read_excel() function to read in data/csss_tweets.xlsx</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>csss_tweets <span class="ot">&lt;-</span> </span>
+<span id="cb7-5"><a href="#cb7-5"></a>  </span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co"># 3. use head() function to read </span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="your-turn---answer-1" class="slide level2">
+<h2><strong>👉 Your Turn</strong> <strong>⤵</strong> -&gt; Answer</h2>
+<div class="fragment">
+<div style="font-size: 50px">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="|3|6|9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#Install and read in the readxl Package </span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#use read_excel() function to read in data/csss_tweets.xlsx</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>csss_tweets <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/csss_tweets.xlsx"</span>)<span class="co">#&lt;&lt;</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#use head() function to read </span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="fu">head</span>(csss_tweets, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 91
+  user_id             status_id     created_at          screen_name text  source
+  &lt;chr&gt;               &lt;chr&gt;         &lt;dttm&gt;              &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; 
+1 1331246991762976769 136572200862… 2021-02-27 17:54:35 InnerSchol… "@We… Twitt…
+2 1331246991762976769 136572187371… 2021-02-27 17:54:03 InnerSchol… "@Bo… Twitt…
+3 1331246991762976769 136572178780… 2021-02-27 17:53:42 InnerSchol… "@Co… Twitt…
+4 1331246991762976769 136572174606… 2021-02-27 17:53:32 InnerSchol… "@Co… Twitt…
+5 1331246991762976769 136572164488… 2021-02-27 17:53:08 InnerSchol… "Ano… Twitt…
+# ℹ 85 more variables: display_text_width &lt;dbl&gt;, reply_to_status_id &lt;chr&gt;,
+#   reply_to_user_id &lt;chr&gt;, reply_to_screen_name &lt;chr&gt;, is_quote &lt;lgl&gt;,
+#   is_retweet &lt;lgl&gt;, favorite_count &lt;dbl&gt;, retweet_count &lt;dbl&gt;,
+#   quote_count &lt;lgl&gt;, reply_count &lt;lgl&gt;, hashtags &lt;lgl&gt;, symbols &lt;lgl&gt;,
+#   urls_url &lt;lgl&gt;, urls_t.co &lt;lgl&gt;, urls_expanded_url &lt;lgl&gt;, media_url &lt;lgl&gt;,
+#   media_t.co &lt;lgl&gt;, media_expanded_url &lt;lgl&gt;, media_type &lt;lgl&gt;,
+#   ext_media_url &lt;lgl&gt;, ext_media_t.co &lt;lgl&gt;, ext_media_expanded_url &lt;lgl&gt;, …</code></pre>
+</div>
+</div>
+</div>
+<p>What did you notice about what is printed?</p>
+</div>
 </section>
 <section id="section" class="slide level2" data-background="#143156">
 <h2></h2>
