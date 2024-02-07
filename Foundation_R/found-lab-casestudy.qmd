@@ -60,6 +60,12 @@ follows:
 
 ## 1. PREPARE (Module 1)
 
+#### **Module 1 Functions:**
+
+-   `library( )`
+
+-   `read_csv( )`
+
 This case study is guided by a well-cited publication from two authors
 that have made numerous contributions to the field of Learning Analytics
 over the years. This article is focused on "early warning systems" in
@@ -296,6 +302,16 @@ fixed in wrangling?
 ### 🛑 Stop here. Congratulations you finished the first part of the case study.
 
 ## 2. WRANGLE (Module 2)
+
+#### 📝 **Module 2 Functions:**
+
++-------------------+-------------------+---------------------+-----------+
+| dplyr (tidyverse) | tidyr (tidyverse) | janitor             | base R    |
++===================+===================+=====================+===========+
+| -   `mutate()`    | -   `seperate()`  | -   `clean_names()` | -   `c()` |
++-------------------+-------------------+---------------------+-----------+
+| -   `full_join()` |                   |                     |           |
++-------------------+-------------------+---------------------+-----------+
 
 ### 2a. Tidy data
 
@@ -587,6 +603,28 @@ Check the data folder to confirm the location of your new file.
 ### 🛑 Stop here. Congratulations you finished the second part of the case study.
 
 ## 3. EXPLORE (Module 3)
+
+#### **Module 3 Functions:**
+
++-------------------------+---------------+-------------------------+
+| dplyr package           | skimr package | ggplot2 package         |
+| (tidyverse)             |               | (tidyverse)             |
++=========================+===============+=========================+
+| -   `group_by( )`       | -   `skim( )` | -   `ggplot()`          |
++-------------------------+---------------+-------------------------+
+| -   `count()`           |               | -   `aes()`             |
++-------------------------+---------------+-------------------------+
+|                         |               | -   `labs()`            |
++-------------------------+---------------+-------------------------+
+|                         |               | -   `geom_point()`,     |
+|                         |               |     `geom_bar()`,       |
+|                         |               |     `geom_tile()`,      |
+|                         |               |     `geom_histogram()`  |
++-------------------------+---------------+-------------------------+
+|                         |               | -   `theme_classic()`   |
++-------------------------+---------------+-------------------------+
+|                         |               | -   `facet_wrap()`      |
++-------------------------+---------------+-------------------------+
 
 ### 3a. Use the `skimr` package
 
@@ -926,11 +964,25 @@ data_to_explore %>%
   facet_wrap() 
 ```
 
-### 🛑 Stop here. Congratulations you finished the third part of the case
-
-study.
+### 🛑 Stop here. Congratulations you finished the third part of the case study.
 
 ## 4. Model (Module 4)
+
+#### 📝 **Module 4 Functions:**
+
++----------------+----------------+----------------+----------------+
+| dplyr package  | corrr package  | apaTables      | base R Package |
+| (tidyverse)    |                | package        |                |
++================+================+================+================+
+| -              | -              | -   `ap        | -   `lm()`     |
+|    `select( )` |  `correlate()` | a.cor.table()` |                |
++----------------+----------------+----------------+----------------+
+| -              | -              |                | -   `mean()`   |
+|  `summarize()` |    `fashion()` |                |                |
++----------------+----------------+----------------+----------------+
+| -              | -   `shave()`  |                |                |
+|  `rearrange()` |                |                |                |
++----------------+----------------+----------------+----------------+
 
 Quantify the insights using mathematical models. As highlighted
 in.[Chapter 3 of Data Science in Education Using
@@ -1171,8 +1223,8 @@ pretty average grade.
 ## Communicate
 
 For your final Your Turn, your goal is to distill our analysis into a
-FLEXBOARD "data product" designed to illustrate key findings. Feel free
-to use the template in the lab 4 folder.
+Quarto Dashboard "data product" designed to illustrate key findings.
+Feel free to use the template in the lab 4 folder.
 
 The final step in the workflow/process is sharing the results of your
 analysis with wider audience. Krumm et al. @krumm2018 have outlined the

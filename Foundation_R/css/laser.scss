@@ -3,18 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
 // fonts
 $font-family-sans-serif: 'Open Sans','Roboto', sans-serif !default;
+$presentation-font-size-root: 50px;
 
 // colors
 $body-bg: #FFFFFF !default;
 $body-color: #000000 !default;
-$linkColor: #d34126 !default;
-$linkColorHover: #e77225 !default;
+$linkColor: #427E93 !default;
+$linkColorHover: #d34126 !default;
 $selection-bg: #26351c;
 
 // headings
 $presentation-heading-font: 'Open Sans','Roboto', sans-serif !default;
-$presentation-heading-color: #8f303b !default;
-
+$presentation-heading-color: #427E93 !default;
 
 /*-- scss:rules --*/
 .reveal .slide {
@@ -23,7 +23,7 @@ $presentation-heading-color: #8f303b !default;
 
 .reveal a {
   line-height: 1em;
-  color: #d34126;
+  color: #990000;
 }
 
 .reveal .footer {
@@ -31,16 +31,15 @@ $presentation-heading-color: #8f303b !default;
 }
 
 .reveal .footer a {
-  color: #d34126;
+  color: #8f303b;
 }
 
 .reveal h2 {
-  font-size: 1.4em;
+  font-size: 1.5em;
   margin-bottom: 50px;
 }
 
 section.has-dark-background code{
   color: #e77225;
 }
-
 

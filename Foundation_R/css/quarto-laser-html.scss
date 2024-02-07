@@ -13,6 +13,7 @@ $red:              #cb2026 !default;
 $dark-red:         #8f303b !default;
 $burgundy:         #59334c !default;
 $navy:             #143156 !default;
+$innovation-blue:  #427E93 !default;
 
 /* greys */
 $gray-100: #f8f9fa !default;
@@ -40,12 +41,12 @@ $min-contrast-ratio:   1.8 !default;
 // Body
 
 $body-color:                $navy !default;
-$headings-color:            $dark-red !default;
+$headings-color:            $innovation-blue !default;
 $toc-color:                 $dark-orange !default;
 
 // Links
 
-$link-color: $medium-orange !default;
+$link-color: $innovation-blue !default;
 
 // Fonts
 

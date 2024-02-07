@@ -30,6 +30,12 @@ editor:
 
 ## 0. INTRODUCTION (Module 1)
 
+#### 📝 **Module 1 Functions:**
+
+-   `library( )`
+
+-   `read_csv( )`
+
 We will focus on online science classes provided through a state-wide
 online virtual school and conduct an analysis that help product
 students' performance in these online courses. This case study is guided
@@ -295,7 +301,18 @@ head(survey)
 
 ## 2. WRANGLE (Module 2)
 
-### 2a. Tidy data
+#### 📝 **Module 2 Functions:**
+
++----------------+----------------+----------------+----------------+
+| dplyr package  | tidyr package  | janitor        | base R package |
+| (tidyverse)    | (tidyverse)    |                |                |
++================+================+================+================+
+| -   `mutate()` | -              | -   `          | -   `c()`      |
+|                |   `seperate()` | clean_names()` |                |
++----------------+----------------+----------------+----------------+
+| -              |                |                |                |
+|  `full_join()` |                |                |                |
++----------------+----------------+----------------+----------------+
 
 #### A. Data 1: TIME SPENT
 
@@ -596,6 +613,28 @@ Check the data folder to confirm the location of your new file.
 ------------------------------------------------------------------------
 
 ## 3. EXPLORE (Module 3)
+
+#### 📝 **Module 3 Functions:**
+
++-------------------------+---------------+-------------------------+
+| dplyr package           | skimr package | ggplot2 package         |
+| (tidyverse)             |               | (tidyverse)             |
++=========================+===============+=========================+
+| -   `group_by( )`       | -   `skim( )` | -   `ggplot()`          |
++-------------------------+---------------+-------------------------+
+| -   `count()`           |               | -   `aes()`             |
++-------------------------+---------------+-------------------------+
+|                         |               | -   `labs()`            |
++-------------------------+---------------+-------------------------+
+|                         |               | -   `geom_point()`,     |
+|                         |               |     `geom_bar()`,       |
+|                         |               |     `geom_tile()`,      |
+|                         |               |     `geom_histogram()`  |
++-------------------------+---------------+-------------------------+
+|                         |               | -   `theme_classic()`   |
++-------------------------+---------------+-------------------------+
+|                         |               | -   `facet_wrap()`      |
++-------------------------+---------------+-------------------------+
 
 We've already wrangled out data - but let's look at the data frame to
 make sure it is still correct. A quick way to look at the data frame is
@@ -972,7 +1011,19 @@ data_to_explore %>%
 
 ## Model (Module 4)
 
-Quantify the insights using mathematical models. As highlighted
+#### 📝 **Module 4 Functions:**
+
++-------------------+-------------------+-----------------------+----------------+
+| dplyr package     | corrr package     | apaTables package     | base R Package |
++===================+===================+=======================+================+
+| -   `select( )`   | -   `correlate()` | -   `apa.cor.table()` | -   `lm()`     |
++-------------------+-------------------+-----------------------+----------------+
+| -   `summarize()` | -   `fashion()`   |                       | -   `mean()`   |
++-------------------+-------------------+-----------------------+----------------+
+| -   `rearrange()` | -   `shave()`     |                       |                |
++-------------------+-------------------+-----------------------+----------------+
+
+: Quantify the insights using mathematical models. As highlighted
 in.[Chapter 3 of Data Science in Education Using
 R](https://datascienceineducation.com/c03.html), the.**Model**step of
 the data science process entails "using statistical models, from simple
@@ -1228,8 +1279,8 @@ apa.reg.table(m1, filename = "lm-table.doc")
 ## Communicate
 
 For your final Your Turn, your goal is to distill our analysis into a
-FLEXBOARD "data product" designed to illustrate key findings. Feel free
-to use the template in the lab 4 folder.
+Quarto Dashboard "data product" designed to illustrate key findings.
+Feel free to use the template in the lab 4 folder.
 
 The final step in the workflow/process is sharing the results of your
 analysis with wider audience. Krumm et al. @krumm2018 have outlined the
