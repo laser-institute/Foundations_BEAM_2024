@@ -11,7 +11,7 @@ format:
     width: 1920
     height: 1080
     margin: 0.05
-    code-overflow: wrap
+    code-overflow: scroll
     footer: <a href=https://www.fi.ncsu.edu/projects/laser-institute>LASER Institute
 resources:
   - demo.pdf
@@ -83,7 +83,7 @@ By the end of this module:
 
 ## Context of the Problem
 
-::: {.fragment .fade-in-then-semi-out}
+::: {.fragment .fade-in-then-semi-out style="font-size: 50px" }
 Macfadyen, L. P., & Dawson, S. (2010). [Mining LMS data to develop an "early warning system" for educators: A proof of concept.](https://www.sciencedirect.com/science/article/pii/S0360131509002486?via%3Dihub) *Computers & education*, *54*(2), 588-599.
 :::
 
@@ -98,7 +98,7 @@ Macfadyen, L. P., & Dawson, S. (2010). [Mining LMS data to develop an "early war
 - Discussion board data
 :::
 
-::: {.fragment .fade-in-then-semi-out}
+::: {.fragment .fade-in-then-semi-out style="font-size: 30px" }
 Research Questions:
 
 - Which LMS tracking data variables correlate significantly with
@@ -221,13 +221,15 @@ If you see <span style="color:red;">red</span> it does not always mean error.
 
 ## Readr functions
 
+::: {style="font-size: 80px"}
 Common {[readr](https://readr.tidyverse.org)} functions to read in different types of data
+:::
 
-<img src = "img/readr_function.png" height= "350px"/>
+![](img/readr_function.png){width="1300"}
 
 ## Delimeter
 
-<img src = "img/delimiter.png" height= "400px"/>
+![](img/delimiter.png){fig-align="center" width="1500"}
 
 :::
 
@@ -321,6 +323,7 @@ In the corresponding script do the following:
 - load in `"data/csss_tweets.xlsx"` file save to a new object csss_tweets
 - inspect the data by `head()` function
 
+
 ::: {style="font-size: 50px"}
 ```{r echo=TRUE, eval=FALSE}
 
@@ -348,7 +351,7 @@ To read in an excel file we will need to install the readxl package and then rea
 
 ::: {style="font-size: 50px"}
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
-#| code-line-numbers: "|3|6|9"
+#| code-line-numbers: "|2|5|8"
 
 #Install and read in the readxl Package 
 library(readxl)
@@ -371,8 +374,9 @@ head(csss_tweets, n = 5)
 ## import Excel Sheet
 
 ```{r echo = TRUE, message = FALSE, warning=FALSE}
-#| code-line-numbers: "|2|4|7"
+#| code-line-numbers: "|1|4|"
 excel_sheets("data/csss_tweets.xlsx") 
+
 
 csss_tweets <- read_excel("data/csss_tweets.xlsx", sheet = "Sheet1")
 
@@ -381,7 +385,8 @@ head(csss_tweets, n = 5)
 ```
 
 ::: {style="font-size: 50px"}
-**Hint: To learn more about functions for this package type:  ?read_excel in the script.**
+Hint: To learn more about functions for this package type:  
+**?read_excel in the script.**
 :::
 
 :::{.notes}

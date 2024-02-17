@@ -472,7 +472,7 @@ Jeanne McClure
 </section>
 <section id="context-of-the-problem" class="slide level2">
 <h2>Context of the Problem</h2>
-<div class="fragment fade-in-then-semi-out">
+<div class="fragment fade-in-then-semi-out" style="font-size: 50px">
 <p>Macfadyen, L. P., &amp; Dawson, S. (2010). <a href="https://www.sciencedirect.com/science/article/pii/S0360131509002486?via%3Dihub">Mining LMS data to develop an “early warning system” for educators: A proof of concept.</a> <em>Computers &amp; education</em>,&nbsp;<em>54</em>(2), 588-599.</p>
 </div>
 <div class="fragment fade-in-then-semi-out" style="font-size: 30px">
@@ -487,7 +487,7 @@ Jeanne McClure
 <li>Discussion board data</li>
 </ul>
 </div>
-<div class="fragment fade-in-then-semi-out">
+<div class="fragment fade-in-then-semi-out" style="font-size: 30px">
 <p>Research Questions:</p>
 <ul>
 <li><p>Which LMS tracking data variables correlate significantly with student achievement?</p></li>
@@ -598,11 +598,17 @@ Jeanne McClure
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Readr functions</a></li><li><a href="#tabset-1-2">Delimeter</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
+<div style="font-size: 80px">
 <p>Common {<a href="https://readr.tidyverse.org">readr</a>} functions to read in different types of data</p>
-<p><img src="img/readr_function.png" height="350px"></p>
+</div>
+<p><img data-src="img/readr_function.png" width="1300"></p>
 </div>
 <div id="tabset-1-2">
-<p><img src="img/delimiter.png" height="400px"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/delimiter.png" width="1500"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -724,7 +730,7 @@ Jeanne McClure
 <div class="fragment">
 <div style="font-size: 50px">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="|3|6|9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#Install and read in the readxl Package </span></span>
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="|2|5|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#Install and read in the readxl Package </span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb8-3"><a href="#cb8-3"></a></span>
 <span id="cb8-4"><a href="#cb8-4"></a><span class="co">#use read_excel() function to read in data/csss_tweets.xlsx</span></span>
@@ -761,11 +767,11 @@ Jeanne McClure
 <section id="import-excel-sheet" class="slide level2">
 <h2>import Excel Sheet</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|2|4|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">excel_sheets</span>(<span class="st">"data/csss_tweets.xlsx"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|1|4|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">excel_sheets</span>(<span class="st">"data/csss_tweets.xlsx"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Sheet1"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|2|4|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>csss_tweets <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/csss_tweets.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Sheet1"</span>)</span>
+<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|1|4|"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>csss_tweets <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/csss_tweets.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Sheet1"</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a></span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="co">#use head() function to read </span></span>
 <span id="cb12-4"><a href="#cb12-4"></a><span class="fu">head</span>(csss_tweets, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -788,7 +794,8 @@ Jeanne McClure
 </div>
 </div>
 <div style="font-size: 50px">
-<p><strong>Hint: To learn more about functions for this package type: ?read_excel in the script.</strong></p>
+<p>Hint: To learn more about functions for this package type:<br>
+<strong>?read_excel in the script.</strong></p>
 </div>
 <aside class="notes">
 <p>You can check what sheets are included in your excel file by calling it with the excel_sheets function. Then you can call only that sheet. Our data only includes one sheet so we do not really need to use this function, but it’s good to know.</p>
